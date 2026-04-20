@@ -1,0 +1,221 @@
+/**
+ * Simple Dark Mode — wp-admin styles
+ *
+ * Wrapped entirely in `@media (prefers-color-scheme: dark)`. In light mode
+ * this file is inert and the user's chosen Admin Color Scheme is untouched.
+ */
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark;
+	}
+
+	html,
+	body.wp-admin,
+	#wpwrap,
+	#wpcontent,
+	#wpbody,
+	#wpbody-content {
+		background-color: #0d1117;
+		color: #e6edf3;
+	}
+
+	/* Main content area headings */
+	.wrap,
+	.wrap p,
+	.wrap li,
+	.wrap label {
+		color: #e6edf3;
+	}
+	.wrap h1,
+	.wrap h2,
+	.wrap h3,
+	.wrap h4,
+	#wpbody h1,
+	#wpbody h2,
+	#wpbody h3 {
+		color: #f0f6fc;
+	}
+
+	/* Links in content */
+	#wpbody a {
+		color: #58a6ff;
+	}
+	#wpbody a:hover,
+	#wpbody a:focus {
+		color: #79c0ff;
+	}
+
+	/* Postboxes / meta boxes */
+	.postbox,
+	.stuffbox,
+	.meta-box-sortables .postbox,
+	#dashboard-widgets .postbox {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.postbox-header,
+	.postbox .hndle,
+	.postbox h2.hndle {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #f0f6fc;
+	}
+	.postbox .inside {
+		color: #e6edf3;
+	}
+
+	/* Form inputs */
+	input[type="text"],
+	input[type="password"],
+	input[type="number"],
+	input[type="search"],
+	input[type="email"],
+	input[type="url"],
+	input[type="tel"],
+	input[type="date"],
+	input[type="datetime-local"],
+	input[type="month"],
+	input[type="week"],
+	input[type="time"],
+	textarea,
+	select {
+		background-color: #0d1117;
+		color: #e6edf3;
+		border-color: #30363d;
+	}
+	input[type="text"]:focus,
+	input[type="password"]:focus,
+	input[type="number"]:focus,
+	input[type="search"]:focus,
+	input[type="email"]:focus,
+	input[type="url"]:focus,
+	textarea:focus,
+	select:focus {
+		border-color: #58a6ff;
+		box-shadow: 0 0 0 1px #58a6ff;
+		outline: none;
+	}
+	input::placeholder,
+	textarea::placeholder {
+		color: #6e7681;
+	}
+
+	/* Secondary buttons (primary keeps WP's brand styling) */
+	.wp-core-ui .button,
+	.wp-core-ui .button-secondary {
+		background-color: #21262d;
+		border-color: #30363d;
+		color: #e6edf3;
+		box-shadow: none;
+	}
+	.wp-core-ui .button:hover,
+	.wp-core-ui .button-secondary:hover {
+		background-color: #30363d;
+		border-color: #8b949e;
+		color: #f0f6fc;
+	}
+
+	/* List tables */
+	.wp-list-table,
+	.widefat {
+		background-color: #0d1117;
+		color: #e6edf3;
+		border-color: #30363d;
+	}
+	.wp-list-table thead th,
+	.wp-list-table tfoot th,
+	.widefat thead th,
+	.widefat tfoot th {
+		background-color: #161b22;
+		color: #f0f6fc;
+		border-color: #30363d;
+	}
+	.wp-list-table tbody tr,
+	.widefat tbody tr {
+		background-color: #0d1117;
+	}
+	.wp-list-table tbody tr:hover,
+	.widefat tbody tr:hover {
+		background-color: #161b22;
+	}
+	.wp-list-table td,
+	.widefat td,
+	.wp-list-table th,
+	.widefat th {
+		color: #e6edf3;
+		border-color: #30363d;
+	}
+	.striped > tbody > :nth-child(odd),
+	tr.alternate,
+	.alternate {
+		background-color: #0d1117;
+	}
+	.wp-list-table .row-actions {
+		color: #8b949e;
+	}
+	.wp-list-table .row-actions a {
+		color: #58a6ff;
+	}
+
+	/* Notices */
+	.notice,
+	div.updated,
+	div.error {
+		background-color: #161b22;
+		color: #e6edf3;
+		border-left-color: #58a6ff;
+	}
+	.notice-success,
+	div.updated {
+		border-left-color: #3fb950;
+	}
+	.notice-warning {
+		border-left-color: #d29922;
+	}
+	.notice-error,
+	div.error {
+		border-left-color: #f85149;
+	}
+
+	/* Screen meta (help / screen options pull-down) */
+	#screen-meta,
+	#screen-meta-links {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	#screen-options-link-wrap,
+	#contextual-help-link-wrap {
+		background-color: #21262d;
+		border-color: #30363d;
+	}
+	#screen-options-link-wrap a,
+	#contextual-help-link-wrap a {
+		color: #e6edf3;
+	}
+
+	/* Pagination */
+	.tablenav .tablenav-pages .page-numbers {
+		background-color: #21262d;
+		color: #e6edf3;
+		border-color: #30363d;
+	}
+	.tablenav .tablenav-pages .page-numbers.current {
+		background-color: #58a6ff;
+		color: #0d1117;
+	}
+
+	/* Code blocks (plugin descriptions, docs pages, etc.) */
+	#wpbody code,
+	#wpbody pre {
+		background-color: #161b22;
+		color: #e6edf3;
+	}
+
+	/* Horizontal rules */
+	#wpbody hr {
+		border-color: #30363d;
+	}
+}

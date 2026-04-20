@@ -1,0 +1,141 @@
+/**
+ * Simple Dark Mode — Block Editor (Gutenberg) chrome
+ *
+ * The canvas itself (where your post content renders) is styled by
+ * assets/frontend.css via add_editor_style() in the main plugin file, so
+ * authoring matches the frontend preview. This file only handles the
+ * WordPress-owned editor UI *around* the canvas: header, sidebar,
+ * inserter, popovers, toolbars, etc.
+ */
+
+@media (prefers-color-scheme: dark) {
+	/* Main editor skeleton */
+	.interface-interface-skeleton,
+	.interface-interface-skeleton__body,
+	.interface-interface-skeleton__content,
+	.interface-interface-skeleton__sidebar,
+	.interface-interface-skeleton__secondary-sidebar,
+	.edit-post-layout,
+	.edit-site-layout {
+		background-color: #0d1117;
+		color: #e6edf3;
+	}
+
+	/* Header / toolbar */
+	.interface-interface-skeleton__header,
+	.edit-post-header,
+	.edit-site-header,
+	.editor-header {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+
+	/* Sidebar / complementary area */
+	.edit-post-sidebar,
+	.edit-site-sidebar,
+	.interface-complementary-area {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+
+	/* Panels */
+	.components-panel,
+	.components-panel__body {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.components-panel__header,
+	.components-panel__body-title {
+		background-color: #161b22;
+		color: #f0f6fc;
+		border-color: #30363d;
+	}
+	.components-panel__body-toggle {
+		color: #e6edf3 !important;
+	}
+
+	/* Inserter, list view, patterns */
+	.block-editor-inserter__menu,
+	.block-editor-inserter__main-area,
+	.block-editor-list-view-tree,
+	.block-editor-block-patterns-list,
+	.block-editor-block-types-list {
+		background-color: #0d1117;
+		color: #e6edf3;
+	}
+	.block-editor-inserter__tabs,
+	.block-editor-inserter__search {
+		background-color: #161b22;
+		border-color: #30363d;
+	}
+
+	/* Block toolbar */
+	.block-editor-block-toolbar,
+	.block-editor-block-contextual-toolbar,
+	.block-editor-rich-text__inline-format-toolbar {
+		background-color: #161b22;
+		border-color: #30363d;
+	}
+
+	/* Form components */
+	.components-text-control__input,
+	.components-textarea-control__input,
+	.components-select-control__input,
+	.components-input-control__input {
+		background-color: #0d1117;
+		color: #e6edf3;
+		border-color: #30363d;
+	}
+	.components-text-control__input::placeholder,
+	.components-textarea-control__input::placeholder {
+		color: #6e7681;
+	}
+
+	/* Buttons inside component library */
+	.components-button:not(.is-primary):not(.is-destructive) {
+		color: #e6edf3;
+	}
+	.components-button:not(.is-primary):not(.is-destructive):hover:not(:disabled) {
+		background-color: #21262d;
+		color: #f0f6fc;
+	}
+
+	/* Notices */
+	.components-notice {
+		background-color: #161b22;
+		color: #e6edf3;
+	}
+
+	/* Popovers, dropdowns, modals */
+	.components-popover__content,
+	.components-dropdown-menu__menu,
+	.components-modal__frame {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+
+	/* Tooltips */
+	.components-tooltip .components-popover__content {
+		background-color: #21262d;
+		color: #f0f6fc;
+	}
+
+	/* Menu items */
+	.components-menu-item__button:hover,
+	.components-menu-item__button:focus {
+		background-color: #21262d;
+		color: #f0f6fc;
+	}
+
+	/* Block inspector tabs */
+	.block-editor-block-inspector__tabs .components-tab-panel__tabs-item {
+		color: #9ba3ad;
+	}
+	.block-editor-block-inspector__tabs .components-tab-panel__tabs-item.is-active {
+		color: #58a6ff;
+	}
+}
