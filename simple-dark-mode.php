@@ -11,6 +11,7 @@
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       simple-dark-mode
+ * Update URI:        https://github.com/chubes4/simple-dark-mode
  *
  * @package SimpleDarkMode
  */
@@ -38,11 +39,18 @@ function simple_dark_mode_asset_version( $relative_path ) {
 /**
  * Enqueue the frontend dark-mode stylesheet.
  *
- * The stylesheet is wrapped entirely in `@media (prefers-color-scheme: dark)`,
- * so when the visitor's OS is in light mode this file is inert.
+ * `enqueue_block_assets` is the canonical WordPress hook for stylesheets
+ * that need to apply to BOTH the frontend and the block editor canvas
+ * (which renders inside an iframe). Per wp-includes/script-loader.php:
+ *
+ *     "Fires after enqueuing block assets for both editor and front-end."
+ *
+ * Using this single hook — instead of wp_enqueue_scripts +
+ * add_editor_style() — correctly styles the editor canvas without the
+ * theme-root path resolution that add_editor_style() imposes on plugins.
  */
 add_action(
-	'wp_enqueue_scripts',
+	'enqueue_block_assets',
 	function () {
 		$rel = 'assets/frontend.css';
 		wp_enqueue_style(
@@ -55,27 +63,28 @@ add_action(
 );
 
 /**
- * Enqueue the wp-admin dark-mode stylesheet.
+ * Enqueue the wp-admin dark-mode stylesheet on admin pages AND on the
+ * login screen (wp-login.php), so the whole WordPress-owned chrome is
+ * consistent.
  */
-add_action(
-	'admin_enqueue_scripts',
-	function () {
-		$rel = 'assets/admin.css';
-		wp_enqueue_style(
-			'simple-dark-mode-admin',
-			SIMPLE_DARK_MODE_URL . $rel,
-			array(),
-			simple_dark_mode_asset_version( $rel )
-		);
-	}
-);
+$simple_dark_mode_enqueue_admin = function () {
+	$rel = 'assets/admin.css';
+	wp_enqueue_style(
+		'simple-dark-mode-admin',
+		SIMPLE_DARK_MODE_URL . $rel,
+		array(),
+		simple_dark_mode_asset_version( $rel )
+	);
+};
+add_action( 'admin_enqueue_scripts', $simple_dark_mode_enqueue_admin );
+add_action( 'login_enqueue_scripts', $simple_dark_mode_enqueue_admin );
 
 /**
  * Enqueue the block editor (Gutenberg) chrome dark-mode stylesheet.
  *
- * This covers the editor UI around the canvas — sidebar, toolbar, inserter,
- * popovers, etc. The canvas itself is styled by the frontend stylesheet via
- * `add_editor_style()` below.
+ * This covers the editor UI *around* the canvas — sidebar, toolbar,
+ * inserter, popovers, etc. The canvas itself picks up the frontend
+ * stylesheet automatically via the `enqueue_block_assets` hook above.
  */
 add_action(
 	'enqueue_block_editor_assets',
@@ -87,16 +96,5 @@ add_action(
 			array(),
 			simple_dark_mode_asset_version( $rel )
 		);
-	}
-);
-
-/**
- * Register the frontend stylesheet as an editor style so the block editor
- * canvas matches the frontend preview in dark mode.
- */
-add_action(
-	'after_setup_theme',
-	function () {
-		add_editor_style( 'assets/frontend.css' );
 	}
 );

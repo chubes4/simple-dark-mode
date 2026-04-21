@@ -38,15 +38,15 @@ wp plugin activate simple-dark-mode
 
 ## How it works
 
-Four hooks, three stylesheets:
+Three hooks, three stylesheets:
 
 ```
-wp_enqueue_scripts            →  assets/frontend.css  (frontend)
+enqueue_block_assets          →  assets/frontend.css  (frontend + editor canvas)
 admin_enqueue_scripts         →  assets/admin.css     (wp-admin)
 enqueue_block_editor_assets   →  assets/editor.css    (block editor chrome)
-after_setup_theme             →  add_editor_style( 'assets/frontend.css' )
-                                 (block editor canvas, matches frontend)
 ```
+
+`enqueue_block_assets` is the canonical WordPress hook for stylesheets that need to apply to both the public frontend **and** the block editor canvas (which renders inside an iframe). One hook, two contexts, no duplicates.
 
 Each stylesheet is wrapped entirely in `@media (prefers-color-scheme: dark)`. The frontend stylesheet overrides two CSS custom properties that most modern block themes use:
 

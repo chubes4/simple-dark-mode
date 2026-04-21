@@ -9,14 +9,12 @@
  */
 
 @media (prefers-color-scheme: dark) {
-	/* Main editor skeleton */
+	/* Main editor skeleton — the root shell that holds header/body/sidebar */
 	.interface-interface-skeleton,
 	.interface-interface-skeleton__body,
 	.interface-interface-skeleton__content,
 	.interface-interface-skeleton__sidebar,
-	.interface-interface-skeleton__secondary-sidebar,
-	.edit-post-layout,
-	.edit-site-layout {
+	.interface-interface-skeleton__secondary-sidebar {
 		background-color: #0d1117;
 		color: #e6edf3;
 	}
@@ -24,19 +22,23 @@
 	/* Header / toolbar */
 	.interface-interface-skeleton__header,
 	.edit-post-header,
-	.edit-site-header,
 	.editor-header {
 		background-color: #161b22;
 		border-color: #30363d;
 		color: #e6edf3;
 	}
 
-	/* Sidebar / complementary area */
-	.edit-post-sidebar,
-	.edit-site-sidebar,
+	/* Sidebar / complementary area (post + site editors both use this) */
 	.interface-complementary-area {
 		background-color: #161b22;
 		border-color: #30363d;
+		color: #e6edf3;
+	}
+
+	/* Post editor visual canvas wrapper (outside the iframe) */
+	.edit-post-visual-editor,
+	.edit-post-meta-boxes-area {
+		background-color: #0d1117;
 		color: #e6edf3;
 	}
 
@@ -66,7 +68,6 @@
 		background-color: #0d1117;
 		color: #e6edf3;
 	}
-	.block-editor-inserter__tabs,
 	.block-editor-inserter__search {
 		background-color: #161b22;
 		border-color: #30363d;

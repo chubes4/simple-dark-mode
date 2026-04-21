@@ -12,12 +12,46 @@
 
 	html,
 	body.wp-admin,
+	body.login,
 	#wpwrap,
 	#wpcontent,
 	#wpbody,
 	#wpbody-content {
 		background-color: #0d1117;
 		color: #e6edf3;
+	}
+
+	/* Login screen (wp-login.php) */
+	body.login #login h1 a {
+		filter: invert(0.9) hue-rotate(180deg);
+	}
+	body.login #loginform,
+	body.login .login form {
+		background-color: #161b22;
+		border-color: #30363d;
+		box-shadow: none;
+	}
+	body.login label,
+	body.login #nav,
+	body.login #backtoblog,
+	body.login .privacy-policy-page-link {
+		color: #e6edf3;
+	}
+	body.login #nav a,
+	body.login #backtoblog a,
+	body.login .privacy-policy-link {
+		color: #58a6ff;
+	}
+	body.login #nav a:hover,
+	body.login #backtoblog a:hover {
+		color: #79c0ff;
+	}
+	body.login input[type="text"],
+	body.login input[type="password"],
+	body.login input[type="email"] {
+		background-color: #0d1117;
+		color: #e6edf3;
+		border-color: #30363d;
 	}
 
 	/* Main content area headings */
