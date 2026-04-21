@@ -109,8 +109,7 @@
 	 * the browser default white. Iframed canvases inherit from
 	 * frontend.css and don't need this.
 	 */
-	.editor-post-title,
-	.editor-post-title__input {
+	.editor-post-title {
 		background-color: transparent;
 		color: #f0f6fc;
 	}
@@ -118,8 +117,9 @@
 	/* Pre-publish / post-publish panels */
 	.editor-post-publish-panel,
 	.editor-post-publish-panel__header,
-	.editor-post-publish-panel__prepublish .components-panel__body,
-	.editor-post-publish-panel__postpublish {
+	.editor-post-publish-panel__content,
+	.editor-post-publish-panel__footer,
+	.editor-post-publish-panel__prepublish .components-panel__body {
 		background-color: #161b22;
 		border-color: #30363d;
 		color: #e6edf3;

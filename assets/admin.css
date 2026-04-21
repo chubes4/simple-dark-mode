@@ -299,8 +299,7 @@
 	 * summary, Export personal data, and many plugin settings pages.
 	 */
 	.card,
-	.welcome-panel,
-	#welcome-panel {
+	.welcome-panel {
 		background-color: #161b22;
 		border-color: #30363d;
 		color: #e6edf3;
