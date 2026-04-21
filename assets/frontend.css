@@ -6,7 +6,16 @@
  */
 
 @media (prefers-color-scheme: dark) {
-	:root {
+	/*
+	 * `html:root` is functionally identical to `:root` (it matches the
+	 * same <html> element) but carries higher CSS specificity (0,1,1)
+	 * than `:root` alone (0,1,0). Core's global-styles inline block
+	 * sets `--wp--preset--color--base` on `:root`, so our overrides
+	 * need to beat that selector on specificity AND order. The PHP
+	 * dependency on `global-styles` ensures order; this selector
+	 * ensures specificity — belt and suspenders.
+	 */
+	html:root {
 		color-scheme: dark;
 
 		/*

@@ -37,24 +37,49 @@ function simple_dark_mode_asset_version( $relative_path ) {
 }
 
 /**
- * Enqueue the frontend dark-mode stylesheet.
+ * Enqueue the frontend dark-mode stylesheet on the public site.
  *
- * `enqueue_block_assets` is the canonical WordPress hook for stylesheets
- * that need to apply to BOTH the frontend and the block editor canvas
- * (which renders inside an iframe). Per wp-includes/script-loader.php:
- *
- *     "Fires after enqueuing block assets for both editor and front-end."
- *
- * Using this single hook — instead of wp_enqueue_scripts +
- * add_editor_style() — correctly styles the editor canvas without the
- * theme-root path resolution that add_editor_style() imposes on plugins.
+ * The dependency on `global-styles` is critical: WordPress outputs the
+ * block-theme `:root` custom-property palette (`--wp--preset--color--base`,
+ * etc.) via an inline <style id="global-styles-inline-css">. Without the
+ * dep, our stylesheet would register earlier in <head> and get clobbered
+ * by the global-styles palette that loads after it. Declaring the dep
+ * forces our stylesheet to render AFTER the palette, so our dark-mode
+ * custom-property overrides actually win the cascade.
  */
 add_action(
-	'enqueue_block_assets',
+	'wp_enqueue_scripts',
 	function () {
 		$rel = 'assets/frontend.css';
 		wp_enqueue_style(
 			'simple-dark-mode',
+			SIMPLE_DARK_MODE_URL . $rel,
+			array( 'global-styles' ),
+			simple_dark_mode_asset_version( $rel )
+		);
+	}
+);
+
+/**
+ * Enqueue the same frontend stylesheet inside the block editor iframe so
+ * the authoring canvas matches the frontend preview in dark mode.
+ *
+ * `enqueue_block_assets` also fires on the public frontend, so we guard
+ * with `is_admin()` to prevent a double-enqueue (which would still only
+ * produce one HTTP request thanks to handle deduplication, but noise in
+ * the cascade is noise). Per wp-common-block-scripts-and-styles(),
+ * `enqueue_block_assets` only fires in admin when the block editor is
+ * actually loading, so this guard precisely scopes us to the editor.
+ */
+add_action(
+	'enqueue_block_assets',
+	function () {
+		if ( ! is_admin() ) {
+			return;
+		}
+		$rel = 'assets/frontend.css';
+		wp_enqueue_style(
+			'simple-dark-mode-canvas',
 			SIMPLE_DARK_MODE_URL . $rel,
 			array(),
 			simple_dark_mode_asset_version( $rel )
