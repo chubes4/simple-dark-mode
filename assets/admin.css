@@ -252,4 +252,319 @@
 	#wpbody hr {
 		border-color: #30363d;
 	}
+
+	/*
+	 * Settings-page nav tabs (`.nav-tab-wrapper` / `.nav-tab`). Used
+	 * across the Settings screens, Permalinks, Discussion, Site Health,
+	 * and many plugins. The active/hover state has a hardcoded white
+	 * background and the inactive tabs have a light background stripe
+	 * that shows as a glaring white line in dark mode.
+	 */
+	.nav-tab-wrapper,
+	.wrap h2.nav-tab-wrapper,
+	.wrap h3.nav-tab-wrapper {
+		border-bottom-color: #30363d;
+	}
+	.nav-tab {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.nav-tab:hover,
+	.nav-tab:focus {
+		background-color: #21262d;
+		color: #f0f6fc;
+	}
+	.nav-tab-active,
+	.nav-tab-active:hover,
+	.nav-tab-active:focus {
+		background-color: #0d1117;
+		border-bottom-color: #0d1117;
+		color: #f0f6fc;
+	}
+
+	/* Settings table labels (`.form-table th`) */
+	.form-table th,
+	.form-table > tbody > tr > th,
+	.form-wrap label {
+		color: #e6edf3;
+	}
+	.form-table td p,
+	.form-table .description {
+		color: #9ba3ad;
+	}
+
+	/*
+	 * `.card` — generic admin card used by Privacy, Site Health top
+	 * summary, Export personal data, and many plugin settings pages.
+	 */
+	.card,
+	.welcome-panel,
+	#welcome-panel {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.welcome-panel h2,
+	.welcome-panel h3 {
+		color: #f0f6fc;
+	}
+
+	/*
+	 * `.wp-filter` — the filter bar above plugin/theme browsers. Ships
+	 * a white background with a grey bottom border.
+	 */
+	.wp-filter,
+	.filter-group,
+	.filtered-by .tag {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+
+	/* Plugin install cards (`Plugins → Add New`) */
+	.plugin-card {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.plugin-card .plugin-card-top,
+	.plugin-card .plugin-card-bottom {
+		background-color: #161b22;
+		border-color: #30363d;
+	}
+	.plugin-card .column-rating,
+	.plugin-card .column-updated,
+	.plugin-card .column-downloaded,
+	.plugin-card .column-compatibility {
+		color: #9ba3ad;
+	}
+
+	/*
+	 * Theme browser — `Appearance → Themes`. Ships bright white tiles
+	 * with a grey shadow.
+	 */
+	.theme-browser .theme {
+		background-color: #161b22;
+		border-color: #30363d;
+	}
+	.theme-browser .theme .theme-name {
+		background-color: #161b22;
+		color: #f0f6fc;
+	}
+	.theme-browser .theme .theme-actions {
+		background-color: rgba(22, 27, 34, 0.9);
+		border-left-color: #30363d;
+	}
+	.theme-overlay .theme-wrap,
+	.theme-overlay .theme-about {
+		background-color: #161b22;
+		color: #e6edf3;
+		border-color: #30363d;
+	}
+	.theme-overlay .theme-header {
+		background-color: #161b22;
+		border-bottom-color: #30363d;
+	}
+
+	/* Classic editor title input (`#titlediv #title`) */
+	#titlediv #title,
+	#titlewrap input[type="text"] {
+		background-color: #0d1117;
+		color: #e6edf3;
+		border-color: #30363d;
+	}
+
+	/*
+	 * `.ui-autocomplete` — jQuery UI autocomplete dropdown used for tag
+	 * suggestions, user search in "Find Posts", and link suggestions.
+	 */
+	.ui-autocomplete {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.ui-autocomplete .ui-menu-item:hover,
+	.ui-autocomplete .ui-state-focus,
+	.ui-autocomplete .ui-state-active {
+		background-color: #21262d;
+		color: #f0f6fc;
+	}
+
+	/*
+	 * `.wp-pointer-*` — the little speech-bubble tooltips WP pops up to
+	 * highlight new features. Pure white by default.
+	 */
+	.wp-pointer .wp-pointer-content {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.wp-pointer .wp-pointer-content h3 {
+		color: #f0f6fc;
+	}
+	.wp-pointer.wp-pointer-top .wp-pointer-arrow-inner,
+	.wp-pointer.wp-pointer-undefined .wp-pointer-arrow-inner {
+		border-bottom-color: #161b22;
+	}
+	.wp-pointer.wp-pointer-bottom .wp-pointer-arrow-inner {
+		border-top-color: #161b22;
+	}
+	.wp-pointer.wp-pointer-left .wp-pointer-arrow-inner {
+		border-right-color: #161b22;
+	}
+	.wp-pointer.wp-pointer-right .wp-pointer-arrow-inner {
+		border-left-color: #161b22;
+	}
+
+	/*
+	 * Modals — the heartbeat session-expired dialog, generic jQuery UI
+	 * dialogs, and Thickbox (used by the Plugin Details modal and
+	 * classic "Insert from URL" flows).
+	 */
+	.notification-dialog,
+	.wp-dialog,
+	.ui-dialog {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.ui-dialog .ui-dialog-titlebar {
+		background-color: #21262d;
+		border-color: #30363d;
+		color: #f0f6fc;
+	}
+	#TB_window,
+	#TB_window.plugin-details-modal {
+		background-color: #161b22;
+		color: #e6edf3;
+	}
+	#TB_title {
+		background-color: #21262d;
+		border-color: #30363d;
+		color: #f0f6fc;
+	}
+	#plugin-information,
+	#plugin-information-content,
+	#plugin-information-tabs,
+	#plugin-information-tabs a.current {
+		background-color: #161b22;
+		color: #e6edf3;
+		border-color: #30363d;
+	}
+
+	/*
+	 * Media library modal (classic `wp.media()` frame) — used by the
+	 * "Add Media" button on classic post editor, featured image picker
+	 * in nav menus / widgets, and any `wp.media` consumer.
+	 */
+	.media-modal,
+	.media-frame,
+	.media-frame-content,
+	.media-frame-title,
+	.media-frame-router,
+	.media-frame-menu,
+	.media-frame-toolbar,
+	.media-sidebar,
+	.attachments-browser,
+	.upload-php .mode-grid .media-sidebar {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.media-modal-backdrop {
+		background: rgba(0, 0, 0, 0.7);
+	}
+	.media-frame-title h1 {
+		color: #f0f6fc;
+	}
+	.media-frame.mode-grid {
+		background-color: #0d1117;
+	}
+	.attachment-preview,
+	.media-frame .attachment .thumbnail {
+		background-color: #0d1117;
+	}
+	.attachment-details,
+	.attachment-info {
+		background-color: #161b22;
+		color: #e6edf3;
+	}
+	.media-upload-form .media-item,
+	.find-box,
+	.find-box-head,
+	.find-box-inside,
+	.find-box-buttons {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.imgedit-wait,
+	.imgedit-popup-menu {
+		background-color: #161b22;
+		border-color: #30363d;
+	}
+
+	/* Site Health accordion */
+	.health-check-accordion,
+	.health-check-accordion-trigger,
+	.health-check-accordion-panel,
+	.health-check-header {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.health-check-accordion-trigger:hover,
+	.health-check-accordion-trigger[aria-expanded="true"] {
+		background-color: #21262d;
+		color: #f0f6fc;
+	}
+	.health-check-offscreen-nav .health-check-tab {
+		background-color: #161b22;
+		color: #e6edf3;
+	}
+
+	/*
+	 * Classic widgets screen (`widgets.php` with the legacy UI) and
+	 * classic nav-menus screen (`nav-menus.php`).
+	 */
+	.widget-inside,
+	.widgets-holder-wrap,
+	.widgets-chooser li {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.manage-menus,
+	.nav-menus-php #post-body,
+	#menu-management,
+	#menu-management .menu-edit {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.menu-item-bar .menu-item-handle {
+		background-color: #21262d;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+
+	/*
+	 * Accordion sections (used in Customizer and a few admin pages).
+	 * Fine if the Customizer itself isn't otherwise supported — these
+	 * are the same selectors used on general admin pages.
+	 */
+	.accordion-section-content,
+	.accordion-section-title {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+
+	/* Re-auth overlay (session expired heartbeat) */
+	.comment-ays {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
 }
