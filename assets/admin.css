@@ -566,4 +566,166 @@
 		border-color: #30363d;
 		color: #e6edf3;
 	}
+
+	/*
+	 * Publish metabox footer — the "lower half" of the classic-editor
+	 * Publish/Update box. Core ships `background: #f6f7f7;` (a light
+	 * grey bar) that reads as a loud white strip against the postbox.
+	 */
+	#major-publishing-actions {
+		background-color: #21262d;
+		border-top-color: #30363d;
+		color: #e6edf3;
+	}
+	.submitbox .submitdelete {
+		color: #f85149;
+	}
+	.submitbox .submitdelete:hover,
+	.submitbox .submitdelete:focus {
+		color: #ff7b72;
+	}
+
+	/*
+	 * Quick Edit / Bulk Edit row on post list tables. The `.inline-edit-*`
+	 * classes are used for both; `.quick-edit-row` exists too but all
+	 * backgrounds route through `.inline-edit-wrapper` and
+	 * `.inline-edit-row`. Core ships a light fill and grey borders.
+	 */
+	.inline-edit-row,
+	.inline-edit-wrapper {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.inline-edit-row fieldset label,
+	.inline-edit-row fieldset span.title,
+	.inline-edit-row fieldset span.checkbox-title {
+		color: #e6edf3;
+	}
+	.inline-edit-save.submit {
+		background-color: #21262d;
+		border-top-color: #30363d;
+	}
+
+	/*
+	 * Classic edit-screen Categories & Tags meta boxes — the "Most Used
+	 * / All" tab panel ships `background-color: #fff` with a grey
+	 * border.
+	 */
+	.taxonomydiv div.tabs-panel,
+	.categorydiv div.tabs-panel,
+	ul.category-tabs,
+	ul.add-menu-item-tabs,
+	ul.wp-tab-bar {
+		background-color: #0d1117;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.wp-tab-active,
+	ul.category-tabs li.tabs,
+	ul.add-menu-item-tabs li.tabs,
+	ul.wp-tab-bar li.wp-tab-active {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #f0f6fc;
+	}
+
+	/*
+	 * Plugins list (`plugins.php`). Rows ship explicit
+	 * `background: #fff` (so zebra striping uses white + grey instead
+	 * of relying on the table default) and the paused-plugin highlight
+	 * uses `#f6f7f7`. Plugin-title icon halo also uses `#f0f0f1`.
+	 */
+	.plugins tr,
+	.plugins tr td {
+		background-color: #0d1117;
+	}
+	.plugins tr.active td,
+	.plugins tr.active th {
+		background-color: #161b22;
+	}
+	.plugins tr.paused td,
+	.plugins tr.paused th {
+		background-color: #3d2b1a;
+	}
+	.plugins .plugin-title .dashicons:before {
+		background-color: #21262d;
+	}
+
+	/*
+	 * Plugin / theme / core update notice rows. `.plugin-update-tr`
+	 * renders as a yellow "update available" strip under the plugin
+	 * row; `.update-message` is the inner box.
+	 */
+	.plugin-update-tr .update-message,
+	.update-message {
+		background-color: #3d2b1a;
+		border-left-color: #d29922;
+		color: #e6edf3;
+	}
+	.plugin-update-tr.active .update-message {
+		background-color: #3d2b1a;
+	}
+
+	/*
+	 * Comments screen (`edit-comments.php`) — row states and the
+	 * inline reply/edit form.
+	 */
+	#the-comment-list .unapproved td,
+	#the-comment-list .unapproved th {
+		background-color: #2d2410;
+	}
+	#the-comment-list div.undo {
+		background-color: #21262d;
+		color: #e6edf3;
+	}
+	#replyrow td {
+		background-color: #161b22;
+		color: #e6edf3;
+	}
+	#replyerror {
+		background-color: #2d2410;
+		border-color: #d29922;
+		color: #e6edf3;
+	}
+
+	/*
+	 * Multisite Sites list (`network/sites.php`). `tr.site-archived`
+	 * and `tr.site-mature` ship red/yellow highlight stripes that
+	 * clash on dark. The site-deleted row also uses a light fill.
+	 */
+	.wp-list-table tr.site-archived,
+	.wp-list-table tr.site-deleted {
+		background-color: #3d1f22;
+	}
+	.wp-list-table tr.site-mature,
+	.wp-list-table tr.site-spammed {
+		background-color: #3d2b1a;
+	}
+
+	/*
+	 * Classic jQuery UI autocomplete ("ac_results") — still used by a
+	 * handful of legacy admin flows (link add, find-posts search).
+	 * Not the same as `.ui-autocomplete` (which is covered above).
+	 */
+	.ac_results {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.ac_results li.ac_over,
+	.ac_results li.ac_odd {
+		background-color: #21262d;
+		color: #f0f6fc;
+	}
+
+	/*
+	 * `.screen-reader-shortcut` — the skip-to-content link that flashes
+	 * on tab focus. Ships `background: #ffffff` as a white chip. Keep
+	 * it visible but dark-mode-native.
+	 */
+	.screen-reader-shortcut:focus {
+		background-color: #161b22;
+		color: #58a6ff;
+	}
 }
