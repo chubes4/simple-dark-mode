@@ -270,4 +270,73 @@
 	.dataviews-filters__search-widget-listitem:hover {
 		background-color: #21262d;
 	}
+
+	/*
+	 * DataViews internal media placeholders — the little image slots
+	 * in grid/list/table/picker views. Each view ships its own
+	 * `background-color: #fff` fallback for missing thumbnails.
+	 */
+	.dataviews-view-grid .dataviews-view-grid__media,
+	.dataviews-view-list .dataviews-view-list__media-wrapper,
+	.dataviews-column-primary__media,
+	.dataviews-view-picker-grid .dataviews-view-picker-grid__media,
+	.dataviews-view-activity .dataviews-view-activity__item-type-icon {
+		background-color: #21262d;
+	}
+
+	/*
+	 * Admin-UI pages — the new generic `.admin-ui-page` wrapper used by
+	 * the site editor's Pages/Templates/Navigation/Patterns routes.
+	 * Reads from `--wpds-color-bg-surface-neutral-strong` with a `#fff`
+	 * fallback, so a variable override handles both the page and its
+	 * header strip in one shot.
+	 */
+	.admin-ui-page,
+	.admin-ui-page__header {
+		--wpds-color-bg-surface-neutral-strong: #0d1117;
+	}
+
+	/*
+	 * Site editor layout. `.edit-site-layout` itself already ships
+	 * `background: #1e1e1e` in core (the site editor is intentionally
+	 * dark), but a handful of white chips float on top of it.
+	 */
+	.edit-site-layout__actions,
+	.edit-site-editor__toggle-save-panel {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+
+	/*
+	 * Font library modal. Footer + tablist container are hardcoded
+	 * white; card hover and upload-area use `#f0f0f0`.
+	 */
+	.font-library__footer,
+	.font-library-modal__tablist-container {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.font-library__font-card:hover,
+	button.font-library__upload-area {
+		background-color: #21262d;
+	}
+
+	/*
+	 * Global Styles UI — revisions footer and shadow/typography
+	 * previews. Previews with a white fill defeat the whole purpose
+	 * of reviewing a dark-mode style, so flip them too.
+	 */
+	.global-styles-ui-screen-revisions__footer {
+		background-color: #161b22;
+		border-color: #30363d;
+	}
+	.global-styles-ui__shadow-preview-panel .global-styles-ui__shadow-preview-block {
+		background-color: #21262d;
+	}
+	.global-styles-ui-typography-preview {
+		background-color: #21262d;
+		color: #e6edf3;
+	}
 }
