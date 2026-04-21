@@ -728,4 +728,126 @@
 		background-color: #161b22;
 		color: #58a6ff;
 	}
+
+	/*
+	 * Customizer (wp-admin/customize.php).
+	 *
+	 * `body.wp-customizer` is the scoping class for every Customizer
+	 * control surface, so rules below are scoped by `.wp-customizer`
+	 * (or by Customizer-specific IDs like `#customize-*`) to avoid
+	 * bleeding onto the generic admin pages.
+	 *
+	 * The preview iframe (`#customize-preview`) is *not* covered —
+	 * preview chrome is rendered from the site's own theme inside an
+	 * iframe, so it's already handled by frontend.css via
+	 * `prefers-color-scheme: dark` when the user's OS is dark.
+	 */
+
+	/* Outer shell — sidebar, header, footer, close */
+	.wp-full-overlay-sidebar,
+	.wp-full-overlay-sidebar-content,
+	.wp-full-overlay-header,
+	#customize-sidebar-outer-content,
+	#customize-footer-actions,
+	.customize-controls-close,
+	.customize-controls-preview-toggle {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+
+	/* Section & panel titles (accordion) */
+	.customize-section-title,
+	.customize-section-back,
+	.customize-pane-child,
+	#customize-controls .customize-info .accordion-section-title,
+	#customize-outer-theme-controls .accordion-section-title,
+	#customize-controls #customize-theme-controls .customize-themes-panel .accordion-section-title,
+	#customize-theme-controls .control-panel-themes > .accordion-section-title {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.customize-section-back:focus,
+	.js .control-section .accordion-section-title:focus,
+	#customize-controls .cannot-expand:hover .accordion-section-title {
+		background-color: #21262d;
+	}
+
+	/*
+	 * Individual controls. The generic `input`/`select`/`textarea`
+	 * rules already cover the form fields themselves; these catch the
+	 * control-level chrome (dropdown chevron, status pill, media
+	 * picker placeholder).
+	 */
+	.customize-control .dropdown-arrow,
+	.customize-control .dropdown-status,
+	.customize-control .attachment-media-view .button-add-media {
+		background-color: #21262d;
+		color: #e6edf3;
+	}
+	.customize-control .attachment-media-view .button-add-media:hover,
+	.customize-control .attachment-media-view .button-add-media:focus {
+		background-color: #30363d;
+	}
+	#customize-control-changeset_preview_link input,
+	#customize-control-changeset_scheduled_date {
+		background-color: #0d1117;
+		color: #e6edf3;
+	}
+
+	/* Customizer themes browser */
+	.control-panel-themes .customize-themes-full-container,
+	.wp-full-overlay.in-themes-panel,
+	.themes-filter-bar,
+	.filter-drawer,
+	.themes-filter-bar .feature-filter-toggle.open,
+	.customize-preview-header.themes-filter-bar {
+		background-color: #0d1117;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.control-panel-themes .customize-themes-section-title,
+	.customize-themes-section-title:not(.selected):after {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.control-panel-themes .customize-themes-section-title:hover {
+		background-color: #21262d;
+	}
+	.customize-control-theme .theme,
+	.customize-control-theme .theme .theme-name,
+	.customize-control-theme .theme .theme-actions {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.wp-customizer .theme-overlay .theme-header,
+	.wp-customizer .theme-overlay .theme-actions {
+		background-color: #21262d;
+		border-color: #30363d;
+	}
+	.wp-customizer .theme-overlay .theme-header .left:hover {
+		background-color: #30363d;
+	}
+
+	/*
+	 * Customizer nav menus — the "Add a Menu Item" pane and the
+	 * reorder controls.
+	 */
+	#available-menu-items,
+	#available-menu-items .accordion-section-title,
+	.customize-control-dropdown-pages .new-content-item-wrapper {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.menu-item-reorder-nav button:focus,
+	.add-menu-toggle.open:hover {
+		background-color: #21262d;
+	}
+	.move-left-disabled .menus-move-left {
+		background-color: transparent;
+	}
 }
