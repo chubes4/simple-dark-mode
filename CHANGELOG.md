@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.2.0] - 2026-04-20
+
+### Changed
+- Close coverage gaps in editor sidebar and admin dashboard
+
 ## [0.1.1] - 2026-04-20
 
 ### Changed

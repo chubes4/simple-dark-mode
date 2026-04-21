@@ -3,7 +3,7 @@
  * Plugin Name:       Simple Dark Mode
  * Plugin URI:        https://github.com/chubes4/simple-dark-mode
  * Description:       Zero-config system-aware dark mode for WordPress. Respects your OS preference on both frontend and admin — no settings, no toggle, it just works.
- * Version:           0.1.1
+ * Version:           0.2.0
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Chris Huber
@@ -18,7 +18,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'SIMPLE_DARK_MODE_VERSION', '0.1.1' );
+define( 'SIMPLE_DARK_MODE_VERSION', '0.2.0' );
 define( 'SIMPLE_DARK_MODE_URL', plugin_dir_url( __FILE__ ) );
 define( 'SIMPLE_DARK_MODE_PATH', plugin_dir_path( __FILE__ ) );
 
