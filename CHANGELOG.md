@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.0] - 2026-04-20
+
+### Changed
+- Close gaps in Customizer and site editor surfaces
+- Close gaps on list-table screens and classic meta boxes
+
 ## [0.2.0] - 2026-04-20
 
 ### Changed
