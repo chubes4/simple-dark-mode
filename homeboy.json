@@ -1,0 +1,24 @@
+{
+  "auto_cleanup": false,
+  "changelog_target": "CHANGELOG.md",
+  "extensions": {
+    "wordpress": {}
+  },
+  "id": "simple-dark-mode",
+  "remote_path": "wp-content/plugins/simple-dark-mode",
+  "remote_url": "https://github.com/chubes4/simple-dark-mode.git",
+  "version_targets": [
+    {
+      "file": "simple-dark-mode.php",
+      "pattern": "Version:\\s*([\\d.]+)"
+    },
+    {
+      "file": "simple-dark-mode.php",
+      "pattern": "SIMPLE_DARK_MODE_VERSION',\\s*'([\\d.]+)"
+    },
+    {
+      "file": "readme.txt",
+      "pattern": "Stable tag:\\s*([\\d.]+)"
+    }
+  ]
+}
