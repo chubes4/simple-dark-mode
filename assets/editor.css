@@ -9,6 +9,24 @@
  */
 
 @media (prefers-color-scheme: dark) {
+	/*
+	 * Theme the `@wordpress/components` library at its source.
+	 *
+	 * Modern Gutenberg components read their surface colors from CSS
+	 * custom properties with hardcoded light-mode fallbacks (e.g.
+	 * `background: var(--wp-components-color-background, #fff)`).
+	 * Overriding those variables at the editor root flips a huge
+	 * portion of the sidebar — ToolsPanel, FormTokenField, MenuItem,
+	 * Dropdowns, ComboBox, etc. — without chasing every selector.
+	 */
+	body.block-editor-page,
+	body.wp-admin.block-editor-page,
+	.interface-interface-skeleton,
+	.editor-editor-interface {
+		--wp-components-color-background: #161b22;
+		--wp-components-color-foreground: #e6edf3;
+	}
+
 	/* Main editor skeleton — the root shell that holds header/body/sidebar */
 	.interface-interface-skeleton,
 	.interface-interface-skeleton__body,
@@ -19,17 +37,57 @@
 		color: #e6edf3;
 	}
 
-	/* Header / toolbar */
+	/*
+	 * Header / toolbar — cover both the legacy `.edit-post-header`
+	 * class (still used in some contexts) and the modern
+	 * `.editor-header` class introduced when the post and site editors
+	 * unified their chrome (WP 6.6+).
+	 */
 	.interface-interface-skeleton__header,
 	.edit-post-header,
-	.editor-header {
+	.editor-header,
+	.editor-editor-interface.is-distraction-free .editor-header {
 		background-color: #161b22;
 		border-color: #30363d;
 		color: #e6edf3;
 	}
 
-	/* Sidebar / complementary area (post + site editors both use this) */
-	.interface-complementary-area {
+	/* Modern document bar (post-title chip at the top of the editor) */
+	.editor-document-bar,
+	.editor-document-bar .components-button {
+		background-color: #0d1117;
+	}
+	.editor-document-bar:hover,
+	.editor-document-bar .components-button:hover {
+		background-color: #21262d;
+	}
+	.editor-document-bar__title,
+	.editor-document-bar__post-type-label,
+	.editor-document-bar__command {
+		color: #e6edf3;
+	}
+
+	/*
+	 * Sidebar / complementary area — both the interface-level container
+	 * and the modern `.editor-sidebar` wrapper used by the unified
+	 * post/site editor. The header strip at the top of the sidebar has
+	 * its own hardcoded `background: #fff` that needs overriding too.
+	 */
+	.interface-complementary-area,
+	.editor-sidebar,
+	.editor-sidebar__panel-tabs,
+	.interface-complementary-area-header {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+
+	/*
+	 * Entities-saved-states panel header — the sidebar that appears
+	 * when you have unsaved changes across multiple entities (e.g.
+	 * template + template-part + post).
+	 */
+	.entities-saved-states__panel-header {
 		background-color: #161b22;
 		border-color: #30363d;
 		color: #e6edf3;
@@ -37,9 +95,39 @@
 
 	/* Post editor visual canvas wrapper (outside the iframe) */
 	.edit-post-visual-editor,
-	.edit-post-meta-boxes-area {
+	.edit-post-meta-boxes-area,
+	.editor-visual-editor,
+	.editor-styles-canvas,
+	.editor-styles-canvas__section {
 		background-color: #0d1117;
 		color: #e6edf3;
+	}
+
+	/*
+	 * Post title input in the canvas. In classic-style views (not the
+	 * iframed block canvas) the title is a plain <textarea> that keeps
+	 * the browser default white. Iframed canvases inherit from
+	 * frontend.css and don't need this.
+	 */
+	.editor-post-title {
+		background-color: transparent;
+		color: #f0f6fc;
+	}
+
+	/* Pre-publish / post-publish panels */
+	.editor-post-publish-panel,
+	.editor-post-publish-panel__header,
+	.editor-post-publish-panel__content,
+	.editor-post-publish-panel__footer,
+	.editor-post-publish-panel__prepublish .components-panel__body {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+
+	/* Collab sidebar thread when selected (WP 6.7+) */
+	.editor-collab-sidebar-panel__thread.is-selected {
+		background-color: #21262d;
 	}
 
 	/* Panels */
@@ -95,6 +183,30 @@
 		color: #6e7681;
 	}
 
+	/*
+	 * FormTokenField — this is the "tags" input in the post sidebar
+	 * plus a bunch of other tag-like pickers. The input container has
+	 * a hardcoded white background that leaves a glaring white strip
+	 * in the Categories / Tags panel without this.
+	 */
+	.components-form-token-field__input-container {
+		background-color: #0d1117;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.components-form-token-field__input {
+		background-color: transparent;
+		color: #e6edf3;
+	}
+	.components-form-token-field__suggestions-list {
+		background-color: #161b22;
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.components-form-token-field__suggestion:hover {
+		background-color: #21262d;
+	}
+
 	/* Buttons inside component library */
 	.components-button:not(.is-primary):not(.is-destructive) {
 		color: #e6edf3;
@@ -138,5 +250,24 @@
 	}
 	.block-editor-block-inspector__tabs .components-tab-panel__tabs-item.is-active {
 		color: #58a6ff;
+	}
+
+	/*
+	 * DataViews — the new grid/table UI used for Pages, Media, and
+	 * other list views in the modern editor. It ships a handful of
+	 * hardcoded `#fff` card surfaces plus a
+	 * `--wp-dataviews-color-background` variable for themed overrides.
+	 */
+	.dataviews-wrapper,
+	.dataviews-view-grid__card,
+	.dataviews-view-table__row,
+	.dataviews-filters__search-widget-listitem {
+		--wp-dataviews-color-background: #161b22;
+		background-color: #161b22;
+		color: #e6edf3;
+	}
+	.dataviews-view-table__row:hover,
+	.dataviews-filters__search-widget-listitem:hover {
+		background-color: #21262d;
 	}
 }
