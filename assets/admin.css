@@ -534,6 +534,86 @@
 	}
 
 	/*
+	 * Post revisions screen (`revision.php`). Core's `revisions.css`
+	 * hardcodes `background: #fff` on the pinned controls bar, the
+	 * tickmark track, the meta panel, the diff container, the slider
+	 * tooltips, and the arrow indicator — plus a pale pink/green
+	 * `diff-deletedline` / `diff-addedline` that's unreadable on a
+	 * dark surface. Swap the neutrals to our dark palette and tune
+	 * the diff highlights to dark-mode equivalents that preserve the
+	 * semantic red-for-deleted / green-for-added signal.
+	 */
+	.revisions.pinned .revisions-controls,
+	.revisions-tickmarks,
+	.revisions-meta,
+	.revisions-diff,
+	.revisions-tooltip,
+	.revisions-tooltip-arrow > span,
+	.arrow:after {
+		background-color: #161b22;
+	}
+	.revisions-tooltip {
+		border-color: #30363d;
+		color: #e6edf3;
+	}
+	.revisions-tickmarks > div {
+		border-left-color: #30363d;
+	}
+
+	/*
+	 * Diff highlight rows — match the light-mode approach of a
+	 * subtle tinted row with a stronger tinted inline span, just
+	 * shifted into the dark palette. Values chosen to keep contrast
+	 * with `#e6edf3` body text above the WCAG AA threshold.
+	 */
+	table.diff .diff-deletedline {
+		background-color: #3d1f22;
+	}
+	table.diff .diff-deletedline del {
+		background-color: #8b2c2c;
+		color: #ffdcd6;
+	}
+	table.diff .diff-addedline {
+		background-color: #1c3226;
+	}
+	table.diff .diff-addedline ins {
+		background-color: #1f7a3a;
+		color: #d6ffdc;
+	}
+
+	/*
+	 * jQuery UI slider handle used to scrub between revisions. Core
+	 * fills it with `#f6f7f7` and borders it with `#c3c4c7` — both
+	 * read as bright chips against the dark diff canvas.
+	 */
+	.wp-slider.ui-slider {
+		border-color: #30363d;
+	}
+	.wp-slider .ui-slider-handle {
+		background: #21262d;
+		border-color: #30363d;
+	}
+	.wp-slider .ui-slider-handle:hover,
+	.wp-slider .ui-slider-handle.ui-state-hover {
+		background: #30363d;
+		border-color: #8b949e;
+	}
+	.wp-slider .ui-slider-handle:active,
+	.wp-slider .ui-slider-handle.ui-state-active,
+	.wp-slider .ui-slider-handle:focus,
+	.wp-slider .ui-slider-handle.ui-state-focus {
+		background: #30363d;
+		border-color: #8b949e;
+	}
+	.wp-slider .ui-slider-handle:before {
+		color: #9ba3ad;
+	}
+	.wp-slider .ui-slider-handle:hover:before,
+	.wp-slider .ui-slider-handle.ui-state-hover:before {
+		color: #f0f6fc;
+	}
+
+	/*
 	 * Classic widgets screen (`widgets.php` with the legacy UI) and
 	 * classic nav-menus screen (`nav-menus.php`).
 	 */
