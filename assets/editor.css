@@ -143,8 +143,18 @@
 		color: #f0f6fc;
 		border-color: #30363d;
 	}
-	.components-panel__body-toggle {
-		color: #e6edf3 !important;
+	/*
+	 * Panel body toggle — core's selector is
+	 * `.components-panel__body-toggle.components-button` (specificity
+	 * 0,2,0) setting `color: #1e1e1e`, and the chevron arrow has its
+	 * own hardcoded `#1e1e1e` fill. Match the core selector to win
+	 * on specificity + order, no `!important` needed.
+	 */
+	.components-panel__body-toggle.components-button {
+		color: #e6edf3;
+	}
+	.components-panel__body-toggle.components-button .components-panel__arrow {
+		color: #e6edf3;
 	}
 
 	/* Inserter, list view, patterns */

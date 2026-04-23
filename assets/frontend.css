@@ -97,17 +97,4 @@
 	hr {
 		border-color: #30363d;
 	}
-
-	/*
-	 * Images — dim slightly so bright whites don't glare against the dark
-	 * canvas. Restore full opacity on hover so the original is one move
-	 * away.
-	 */
-	img:not([src*=".svg"]) {
-		opacity: 0.88;
-		transition: opacity 0.15s ease;
-	}
-	img:not([src*=".svg"]):hover {
-		opacity: 1;
-	}
 }
