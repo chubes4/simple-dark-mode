@@ -29,7 +29,6 @@
 	body.login .login form {
 		background-color: #161b22;
 		border-color: #30363d;
-		box-shadow: none;
 	}
 	body.login label,
 	body.login #nav,
@@ -128,8 +127,6 @@
 	textarea:focus,
 	select:focus {
 		border-color: #58a6ff;
-		box-shadow: 0 0 0 1px #58a6ff;
-		outline: none;
 	}
 	input::placeholder,
 	textarea::placeholder {
@@ -142,7 +139,6 @@
 		background-color: #21262d;
 		border-color: #30363d;
 		color: #e6edf3;
-		box-shadow: none;
 	}
 	.wp-core-ui .button:hover,
 	.wp-core-ui .button-secondary:hover {
@@ -307,6 +303,20 @@
 	.welcome-panel h2,
 	.welcome-panel h3 {
 		color: #f0f6fc;
+	}
+
+	/*
+	 * Dashboard welcome panel — the "Welcome to WordPress!" card at
+	 * the top of `index.php`. Core renders a dark header strip
+	 * (`.welcome-panel-header-wrap` ships `background: #151515`, so
+	 * it's already dark-safe) but the column grid underneath ships
+	 * hardcoded `background: #ffffff` with a light grey border on
+	 * `.welcome-panel .welcome-panel-column-container` in
+	 * `wp-admin/css/dashboard.css`. That's the glaring white pane.
+	 */
+	.welcome-panel .welcome-panel-column-container {
+		background: #161b22;
+		border-color: #30363d;
 	}
 
 	/*
