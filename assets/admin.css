@@ -147,7 +147,31 @@
 		color: #f0f6fc;
 	}
 
-	/* List tables */
+	/*
+	 * List tables (`edit.php`, `users.php`, `edit-comments.php`, etc.).
+	 *
+	 * Core does NOT draw an explicit divider line between tbody rows —
+	 * it relies on `.striped` zebra striping (alternating `#fff` / `#f6f7f7`
+	 * backgrounds in `wp-admin/css/common.css`) for visual separation.
+	 *
+	 * Two consequences for dark mode:
+	 *   1. If we paint every row the same dark base and skip striping,
+	 *      rows blend into one uninterrupted slab (the bug this fixes).
+	 *   2. If the odd-row stripe uses `#161b22`, the hover state must
+	 *      move to a distinct tone or hover visually collapses onto the
+	 *      stripe and hover feedback disappears.
+	 *
+	 * Fix: keep zebra striping (base `#0d1117` on even rows, `#161b22` on
+	 * odd rows via `.striped > tbody > :nth-child(odd)`), bump hover to
+	 * `#21262d`, and add a subtle `border-bottom: 1px solid #30363d` on
+	 * tbody cells as a belt-and-suspenders divider for tables that
+	 * aren't `.striped` (some plugin tables opt out). The last row's
+	 * border is already suppressed by core's `#the-list tr:last-child`
+	 * rule in `list-tables.css`.
+	 *
+	 * Striped nth-child rule also targets `> th` / `> td` to win
+	 * specificity over tbody-level background rules on the same row.
+	 */
 	.wp-list-table,
 	.widefat {
 		background-color: #0d1117;
@@ -167,8 +191,12 @@
 		background-color: #0d1117;
 	}
 	.wp-list-table tbody tr:hover,
-	.widefat tbody tr:hover {
-		background-color: #161b22;
+	.widefat tbody tr:hover,
+	.wp-list-table tbody tr:hover > th,
+	.wp-list-table tbody tr:hover > td,
+	.widefat tbody tr:hover > th,
+	.widefat tbody tr:hover > td {
+		background-color: #21262d;
 	}
 	.wp-list-table td,
 	.widefat td,
@@ -177,10 +205,18 @@
 		color: #e6edf3;
 		border-color: #30363d;
 	}
+	.wp-list-table tbody td,
+	.wp-list-table tbody th,
+	.widefat tbody td,
+	.widefat tbody th {
+		border-bottom: 1px solid #30363d;
+	}
 	.striped > tbody > :nth-child(odd),
+	.striped > tbody > :nth-child(odd) > th,
+	.striped > tbody > :nth-child(odd) > td,
 	tr.alternate,
 	.alternate {
-		background-color: #0d1117;
+		background-color: #161b22;
 	}
 	.wp-list-table .row-actions {
 		color: #8b949e;
